@@ -1,7 +1,7 @@
 import Expo from 'expo';
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { DrawerNavigator, StackNavigator } from 'react-navigation';
 
 class MainScreenNavigator extends React.Component {
   render() {
@@ -24,8 +24,17 @@ class ChatScreen extends React.Component {
   }
 }
 
-const App = StackNavigator({
-  Home: { screen: MainScreenNavigator },
+const DrawerNav = DrawerNavigator({
+  Home: {
+    screen: MainScreenNavigator,
+  },
+  Notifications: {
+    screen: ChatScreen,
+  },
+});
+
+const Main = StackNavigator({
+  Home: { screen: DrawerNav },
   Chat: { screen: ChatScreen },
 });
 
@@ -41,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-Expo.registerRootComponent(App);
+Expo.registerRootComponent(Main);
