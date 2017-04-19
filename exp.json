@@ -1,0 +1,21 @@
+{
+  "name": "react-native-drawer-layout-issue26",
+  "description": "An empty new project",
+  "slug": "react-native-drawer-layout-issue26",
+  "privacy": "public",
+  "sdkVersion": "15.0.0",
+  "version": "1.0.0",
+  "orientation": "portrait",
+  "primaryColor": "#cccccc",
+  "icon": "./assets/icons/app.png",
+  "loading": {
+    "icon": "./assets/icons/loading.png",
+    "hideExponentText": false
+  },
+  "packagerOpts": {
+    "assetExts": ["ttf", "mp4"]
+  },
+  "ios": {
+    "supportsTablet": true
+  }
+}
