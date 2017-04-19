@@ -1,16 +1,33 @@
 import Expo from 'expo';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-class App extends React.Component {
+class MainScreenNavigator extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up main.js to start working on your app!</Text>
+      <View>
+        <Text style={styles.spacing}>Main</Text>
+        <Button
+          onPress={() =>
+            this.props.navigation.navigate('Chat', { user: 'Lucy' })}
+          title="Chat with Lucy"
+        />
       </View>
     );
   }
 }
+
+class ChatScreen extends React.Component {
+  render() {
+    return <Text style={styles.spacing}>Chat with Lucy</Text>;
+  }
+}
+
+const App = StackNavigator({
+  Home: { screen: MainScreenNavigator },
+  Chat: { screen: ChatScreen },
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -18,6 +35,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  spacing: {
+    padding: 20,
   },
 });
 
